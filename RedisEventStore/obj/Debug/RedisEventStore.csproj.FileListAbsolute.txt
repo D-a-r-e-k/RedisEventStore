@@ -1,8 +1,0 @@
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\bin\Debug\RedisEventStore.exe
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\bin\Debug\RedisEventStore.pdb
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\bin\Debug\StackExchange.Redis.dll
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\bin\Debug\StackExchange.Redis.xml
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\obj\Debug\RedisEventStore.exe
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\obj\Debug\RedisEventStore.pdb
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\bin\Debug\protobuf-net.dll
-C:\ExtensionPoint\Studies\Semester#7\Project\RedisEventStore\RedisEventStore\obj\Debug\RedisEventStore.csprojResolveAssemblyReference.cache
