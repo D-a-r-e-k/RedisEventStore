@@ -18,7 +18,7 @@ namespace RedisEventStore.EventStore
         public EventStore()
         {
             _connectionMultiplexer = ConnectionMultiplexer.Connect("localhost,abortConnect=false");
-            _insertionStrategy = new AtomicInsertion();
+            _insertionStrategy = new GeneralInsertion();
         }
 
         public List<Event> RetrieveForAggregate(string aggregateId)
@@ -33,6 +33,25 @@ namespace RedisEventStore.EventStore
                 return Serializer.Deserialize<Event>(stream);
             })
             .ToList();
+        }
+
+        public List<Event> RetrieveForAggregateGeneral(string aggregateId)
+        {
+            var server = _connectionMultiplexer.GetServer(_connectionMultiplexer.GetEndPoints().First());
+            var db = _connectionMultiplexer.GetDatabase();
+
+            var members = server.Keys(0, aggregateId + "*").ToArray();
+
+            return members
+                .Where(x => !x.ToString().EndsWith("ActualVersion"))
+                .Select(x =>
+                {
+                    var y = db.StringGet(x);
+                    var stream = new MemoryStream(y);
+                    return Serializer.Deserialize<Event>(stream);
+                })
+                .OrderBy(x => x.Version)
+                .ToList();
         }
 
         private int GetEventSourceVersionDirectly(string aggregateId)
